@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+from pathlib import Path
 from sklearn.tree import DecisionTreeRegressor
 
 # ==========================================
@@ -33,8 +33,8 @@ st.info(
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("students_regression.csv")
-
+    data_path = Path(__file__).parent / "students_regression.csv"
+    return pd.read_csv(data_path)
 
 df = load_data()
 
